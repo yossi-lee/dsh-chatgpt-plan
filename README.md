@@ -11,6 +11,16 @@ English | [中文](README.zh.md)
 
 Use your ChatGPT plan to run DSH tasks through OpenAI's official Sign in with ChatGPT flow. This bundle adds the `codex-plan` provider and account controls in Settings → Models. Each user authorizes their own account; eligible requests consume their existing plan allowance. The plugin uses the public Responses API and keeps DSH's agent loop and tools. It is an independent integration, not an OpenAI or DeepSeek endorsement.
 
+## Screenshots
+
+The account controls in Settings → Models (email hidden):
+
+![ChatGPT plan account settings with the signed-in email hidden](docs/screenshots/account-settings.png)
+
+Available models in the model picker. The list depends on your account and may change:
+
+![ChatGPT plan models in the DSH model picker](docs/screenshots/model-picker.png)
+
 ## Table of Contents
 
 - [Use this package](#use-this-package)

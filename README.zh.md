@@ -11,6 +11,16 @@ kind: "package-bundle"
 
 通过 OpenAI 官方 Sign in with ChatGPT 流程，使用你的 ChatGPT 订阅运行 DSH 任务。本组合包添加 `codex-plan` 模型提供商，以及「设置 → 模型」中的账号控制。每位用户授权自己的账号，符合条件的请求消耗已有订阅额度。插件调用公开 Responses API，任务循环和工具仍由 DSH 执行。本项目是独立集成，不代表 OpenAI 或 DeepSeek 官方认可。
 
+## 界面截图
+
+「设置 → 模型」中的账号控制，邮箱已隐藏：
+
+![ChatGPT plan 账号设置，已隐藏登录邮箱](docs/screenshots/account-settings.png)
+
+模型选择器中的可用模型。实际列表取决于账号，并可能随服务更新变化：
+
+![DSH 模型选择器中的 ChatGPT plan 模型](docs/screenshots/model-picker.png)
+
 ## 目录
 
 - [使用本包](#use-this-package)
