@@ -92,5 +92,17 @@
   "homepage": "https://github.com/yossi-lee/dsh-chatgpt-plan#readme",
   "bugs": {
     "url": "https://github.com/yossi-lee/dsh-chatgpt-plan/issues"
-  }
+  },
+  "author": {
+    "name": "yossi-lee",
+    "url": "https://github.com/yossi-lee"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "chatgpt",
+    "openai",
+    "oauth",
+    "responses-api"
+  ]
 }

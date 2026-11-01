@@ -28,6 +28,16 @@ kind: "package-bundle"
 
 使用 Node.js ≥24.9 和 DSH **0.2.2-alpha.2**。本版本面向基于 `dsh-base` 的 profile，包括 Web、Desktop 和 headless；兼容声明会拒绝其他 DSH 版本。账号需要符合 OpenAI SIWC 订阅使用条件，且在授权时允许使用订阅额度。已用真实账号验证浏览器登录和模型发现，在线推理尚未验证。
 
+从 [GitHub Releases](https://github.com/yossi-lee/dsh-chatgpt-plan/releases/tag/v0.1.2) 下载预构建安装包，无需本地构建：
+
+```sh
+curl -fL https://github.com/yossi-lee/dsh-chatgpt-plan/releases/download/v0.1.2/dsh-chatgpt-plan-0.1.2.tgz -o dsh-chatgpt-plan-0.1.2.tgz
+dsh plugin --profile web add ./dsh-chatgpt-plan-0.1.2.tgz
+dsh web --no-open
+```
+
+安装后重启已运行的 DSH。GitHub 自动生成的源码压缩包不含构建产物；安装请使用 Release 中的 `.tgz` 文件。
+
 在本项目目录中构建，然后安装进由 CLI 管理的 profile：
 
 ```sh

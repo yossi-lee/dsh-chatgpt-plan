@@ -27,6 +27,16 @@ Use your ChatGPT plan to run DSH tasks through OpenAI's official Sign in with Ch
 
 Use Node.js ≥24.9 and DSH **0.2.2-alpha.2**. This version targets profiles based on `dsh-base`, including Web, Desktop and headless; other DSH versions are rejected by its compatibility declaration. You need a ChatGPT account eligible for SIWC plan usage, with plan usage granted during authorization. Browser sign-in and model discovery have been verified with a real account. Real-account inference remains unverified.
 
+Download the prebuilt package from [GitHub Releases](https://github.com/yossi-lee/dsh-chatgpt-plan/releases/tag/v0.1.2) and install it without a build step:
+
+```sh
+curl -fL https://github.com/yossi-lee/dsh-chatgpt-plan/releases/download/v0.1.2/dsh-chatgpt-plan-0.1.2.tgz -o dsh-chatgpt-plan-0.1.2.tgz
+dsh plugin --profile web add ./dsh-chatgpt-plan-0.1.2.tgz
+dsh web --no-open
+```
+
+Restart an already running DSH after installation. GitHub source archives do not contain built code; use the release `.tgz` for installation.
+
 From this checkout, install the built plugin into a CLI-managed profile:
 
 ```sh
