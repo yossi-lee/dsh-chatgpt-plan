@@ -1,0 +1,13 @@
+node_modules/
+lib/
+coverage/
+*.tgz
+.DS_Store
+.playwright-cli/
+codex-plan-settings.png
+codex-plan-install-backup-*/
+.env
+.env.*
+!.env.example
+.credentials*
+*.log

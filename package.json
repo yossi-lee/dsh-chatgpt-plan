@@ -1,0 +1,96 @@
+{
+  "name": "dsh-chatgpt-plan",
+  "version": "0.1.2",
+  "description": "Use your ChatGPT plan in DeepSeek Harness through official Sign in with ChatGPT.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-alpha.2"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings-models"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "npm run build && vitest run",
+    "verify:dsh": "node scripts/verify-dsh.mjs",
+    "link:dsh": "node scripts/link-dsh.mjs",
+    "prepack": "npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "jose": "^6.2.12",
+    "openai": "^7.19.0",
+    "zod": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.6-alpha.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-credentials": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-authorization": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.2-alpha.2",
+    "@deepseek-ai/schemastery": "~3.18.6-alpha.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.0.6-alpha.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-credentials": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-authorization": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.2-alpha.2",
+    "@deepseek-ai/schemastery": "~3.18.6-alpha.1",
+    "@deepseek-ai/dsh-credentials-local": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-atomic-write": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-launch-environment": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-home-paths": "0.2.2-alpha.2",
+    "@deepseek-ai/cordis-plugin-loader": "~1.0.7-alpha.1",
+    "@deepseek-ai/cordis-plugin-include": "~1.0.11-alpha.1",
+    "@deepseek-ai/dsh-client-ui-primitives": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-client-ui-slots": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-client-ui-renderer": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-client-ui-settings-models": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-client-locale": "0.2.2-alpha.2",
+    "@deepseek-ai/dsh-api-gateway": "0.2.2-alpha.2",
+    "@types/node": "^24.0.0",
+    "@types/react": "^18.3.0",
+    "esbuild": "^0.25.0",
+    "react": "^18.3.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yossi-lee/dsh-chatgpt-plan.git"
+  },
+  "homepage": "https://github.com/yossi-lee/dsh-chatgpt-plan#readme",
+  "bugs": {
+    "url": "https://github.com/yossi-lee/dsh-chatgpt-plan/issues"
+  }
+}

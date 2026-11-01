@@ -1,0 +1,5 @@
+[
+  { "store": false, "stream": true, "toolsNamespaced": true, "toolResultSeen": false, "encryptedReplaySeen": false },
+  { "store": false, "stream": true, "toolsNamespaced": true, "toolResultSeen": true, "encryptedReplaySeen": true },
+  { "store": false, "stream": true, "toolsNamespaced": true, "toolResultSeen": true, "encryptedReplaySeen": true }
+]
