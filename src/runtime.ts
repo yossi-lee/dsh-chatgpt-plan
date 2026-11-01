@@ -48,7 +48,6 @@ export class PlanRuntime {
           : error instanceof LlmError && error.code === 'CODEX_PLAN_INVALID_DATA' ? 'identity' : 'signIn'
       } finally {
         this.url = undefined; this.pending = undefined; this.submitCallback = undefined
-        this.ctx.emit('llm/models-updated', 'codex-plan')
         ready()
       }
     })
@@ -87,7 +86,6 @@ export class PlanRuntime {
     this.cancelRequests()
     await this.work.run(async lifetime => {
       this.revocationUnconfirmed = !await this.auth.logout(AbortSignal.any([lifetime, AbortSignal.timeout(this.options.requestTimeoutMs)]))
-      this.ctx.emit('llm/models-updated', 'codex-plan')
     })
     return this.status()
   }

@@ -35,17 +35,19 @@ Available models in the model picker. The list depends on your account and may c
 
 ### Requirements and installation
 
-Use Node.js ≥24.9 and DSH **0.2.2-alpha.2**. This version targets profiles based on `dsh-base`, including Web, Desktop and headless; other DSH versions are rejected by its compatibility declaration. You need a ChatGPT account eligible for SIWC plan usage, with plan usage granted during authorization. Browser sign-in and model discovery have been verified with a real account. Real-account inference remains unverified.
+Use Node.js ≥24.9 and DSH **0.2.1-rc.5** or **0.2.2-alpha.2**. This version targets profiles based on `dsh-base`, including Web, Desktop and headless; other DSH versions are rejected by its compatibility declaration. You need a ChatGPT account eligible for SIWC plan usage, with plan usage granted during authorization. Browser sign-in and model discovery have been verified with a real account. Real-account inference remains unverified.
 
-Download the prebuilt package from [GitHub Releases](https://github.com/yossi-lee/dsh-chatgpt-plan/releases/tag/v0.1.2) and install it without a build step:
+Download the prebuilt package from [GitHub Releases](https://github.com/yossi-lee/dsh-chatgpt-plan/releases/tag/v0.1.3) and install it without a build step:
 
 ```sh
-curl -fL https://github.com/yossi-lee/dsh-chatgpt-plan/releases/download/v0.1.2/dsh-chatgpt-plan-0.1.2.tgz -o dsh-chatgpt-plan-0.1.2.tgz
-dsh plugin --profile web add ./dsh-chatgpt-plan-0.1.2.tgz
+curl -fL https://github.com/yossi-lee/dsh-chatgpt-plan/releases/download/v0.1.3/dsh-chatgpt-plan-0.1.3.tgz -o dsh-chatgpt-plan-0.1.3.tgz
+dsh plugin --profile web add ./dsh-chatgpt-plan-0.1.3.tgz
 dsh web --no-open
 ```
 
 Restart an already running DSH after installation. GitHub source archives do not contain built code; use the release `.tgz` for installation.
+
+In Desktop, install the local `.tgz` or its release download URL through the plugin manager, then restart Desktop. Version 0.1.2 supported only DSH 0.2.2-alpha.2; use 0.1.3 for DSH 0.2.1-rc.5. Do not disable compatibility checks.
 
 From this checkout, install the built plugin into a CLI-managed profile:
 
@@ -63,7 +65,7 @@ For distribution without a source checkout, build and pack the plugin:
 
 ```sh
 npm pack
-dsh plugin --profile web add /absolute/path/to/dsh-chatgpt-plan-0.1.2.tgz
+dsh plugin --profile web add /absolute/path/to/dsh-chatgpt-plan-0.1.3.tgz
 ```
 
 This package is not published to npm. The tarball contains built Host and browser code and requires no installation-time build. Removing the plugin with `dsh plugin --profile web remove dsh-chatgpt-plan` removes its bundle layer; credential records remain in the DSH store.
@@ -152,3 +154,5 @@ Unchanged history retains its native item order, phase and encrypted reasoning. 
 This preview is not published to npm. Browser authorization and model discovery have been verified with an eligible account; real-account multi-step tasks, token rotation and revocation still need verification.
 
 The package and display name changed from `dsh-codex-plan` / Codex plan to `dsh-chatgpt-plan` / ChatGPT plan in 0.1.2. Remove the old package before installing the new one. Internal provider, configuration, credential, and replay identifiers remain `codex-plan` to preserve saved sessions and sign-in.
+
+Version 0.1.3 adds DSH 0.2.1-rc.5 support. Development dependencies target that older release; the test suite and built-package install/tool/session-recovery checks pass against it. The installed Desktop runtime also passes browser account-card mount and sign-in start/cancel checks. Catalog invalidation uses credential events shared by both supported releases.

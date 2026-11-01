@@ -77,3 +77,14 @@ it.each(['iso', 'seconds'])('honors an earliest-refresh time encoded as %s', asy
   expect(f.refreshes()).toBe(0)
   expect(await f.auth.connection()).toBeDefined()
 })
+
+it('notifies model selectors through credential updates on sign-in and sign-out', async () => {
+  const f = await setup()
+  const updated: string[] = []
+  f.ctx.on('credentials/record-updated', key => { updated.push(key) })
+  await f.login()
+  expect(updated).toContain(KEY)
+  updated.length = 0
+  await f.auth.logout(new AbortController().signal)
+  expect(updated).toContain(KEY)
+})
