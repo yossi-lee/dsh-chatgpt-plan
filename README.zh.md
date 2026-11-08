@@ -36,19 +36,19 @@ kind: "package-bundle"
 
 ### 要求与安装
 
-使用 Node.js ≥24.9 和 DSH **0.2.1-rc.5** 或 **0.2.2-alpha.2**。本版本面向基于 `dsh-base` 的 profile，包括 Web、Desktop 和 headless；兼容声明会拒绝其他 DSH 版本。账号需要符合 OpenAI SIWC 订阅使用条件，且在授权时允许使用订阅额度。已用真实账号验证浏览器登录和模型发现，在线推理尚未验证。
+使用 Node.js ≥24.9 和 DSH **0.2.1-rc.5**、**0.2.2-alpha.2** 或 **0.2.2-rc.1**。本版本面向基于 `dsh-base` 的 profile，包括 Web、Desktop 和 headless；兼容声明会拒绝其他 DSH 版本。账号需要符合 OpenAI SIWC 订阅使用条件，且在授权时允许使用订阅额度。已用真实账号验证浏览器登录和模型发现，在线推理尚未验证。
 
-从 [GitHub Releases](https://github.com/yossi-lee/dsh-chatgpt-plan/releases/tag/v0.1.3) 下载预构建安装包，无需本地构建：
+从 [GitHub Releases](https://github.com/yossi-lee/dsh-chatgpt-plan/releases/tag/v0.1.4) 下载预构建安装包，无需本地构建：
 
 ```sh
-curl -fL https://github.com/yossi-lee/dsh-chatgpt-plan/releases/download/v0.1.3/dsh-chatgpt-plan-0.1.3.tgz -o dsh-chatgpt-plan-0.1.3.tgz
-dsh plugin --profile web add ./dsh-chatgpt-plan-0.1.3.tgz
+curl -fL https://github.com/yossi-lee/dsh-chatgpt-plan/releases/download/v0.1.4/dsh-chatgpt-plan-0.1.4.tgz -o dsh-chatgpt-plan-0.1.4.tgz
+dsh plugin --profile web add ./dsh-chatgpt-plan-0.1.4.tgz
 dsh web --no-open
 ```
 
 安装后重启已运行的 DSH。GitHub 自动生成的源码压缩包不含构建产物；安装请使用 Release 中的 `.tgz` 文件。
 
-桌面版请在插件管理器中安装本地 `.tgz` 或填写 Release 的安装包下载链接，然后重启桌面版。0.1.2 仅支持 DSH 0.2.2-alpha.2；DSH 0.2.1-rc.5 请使用 0.1.3。不要关闭兼容性检查。
+桌面版请在插件管理器中安装本地 `.tgz` 或填写 Release 的安装包下载链接，然后重启桌面版。DSH 0.2.2-rc.1 请使用 0.1.4；0.1.3 支持上述两个旧版本，0.1.2 仅支持 DSH 0.2.2-alpha.2。不要关闭兼容性检查。
 
 在本项目目录中构建，然后安装进由 CLI 管理的 profile：
 
@@ -66,7 +66,7 @@ dsh web --no-open
 
 ```sh
 npm pack
-dsh plugin --profile web add /absolute/path/to/dsh-chatgpt-plan-0.1.3.tgz
+dsh plugin --profile web add /absolute/path/to/dsh-chatgpt-plan-0.1.4.tgz
 ```
 
 本包尚未发布到 npm。tarball 包含构建后的 Host 和浏览器代码，安装时不需要执行构建。执行 `dsh plugin --profile web remove dsh-chatgpt-plan` 会移除对应组合层；凭据记录继续保留在 DSH 存储中。
@@ -161,3 +161,5 @@ npm run verify:dsh -- ../dsh
 0.1.2 将包名和显示名称从 `dsh-codex-plan` / Codex plan 改为 `dsh-chatgpt-plan` / ChatGPT plan。升级时先移除旧包，再安装新包。内部提供商、配置、凭据和回放标识继续使用 `codex-plan`，保留已有会话和登录状态。
 
 0.1.3 增加 DSH 0.2.1-rc.5 支持。开发依赖以该旧版本为基准，已通过测试套件以及构建包的安装、工具调用和会话恢复检查。桌面版附带运行时也已通过浏览器账号卡片挂载、发起登录和取消登录检查。模型目录通过两个支持版本共有的凭据事件更新。
+
+0.1.4 增加 DSH 0.2.2-rc.1 兼容声明，保留旧版本支持。无需修改运行时代码。已分别在 0.2.1-rc.5 和 0.2.2-rc.1 依赖下通过类型检查与 23 项测试，并使用本机 0.2.2-rc.1 桌面版附带 CLI 验证安装包的安装、工具调用及重启后会话恢复。新版桌面界面和真实账号推理尚未验证。
